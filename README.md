@@ -135,14 +135,24 @@ running engineering journal:
 | [docs/roadmap.md](docs/roadmap.md) | Where ASCEND is and where it's going |
 | [LEARNINGS.md](LEARNINGS.md) | The engineering journal |
 
-## About
+## About & connect
 
-ASCEND is designed and built by **Diego**. It's an ongoing, solo-led project — built deliberately,
+ASCEND is designed and built by **Diego** — an ongoing, solo-led project, built deliberately,
 shipped honestly, and documented in the open here.
 
-- 🌐 Live: **[ascenddaily.app](https://ascenddaily.app)**
-- 📄 License: see **[LICENSE](LICENSE)** — docs and brand only; no code is licensed here.
+<p align="center">
+  <a href="https://ascenddaily.app"><img src="https://img.shields.io/badge/Live-ascenddaily.app-e3b341?style=for-the-badge&labelColor=0a0a0b" alt="Live at ascenddaily.app"></a>
+  <a href="https://instagram.com/ascend1211"><img src="https://img.shields.io/badge/Instagram-%40ascend1211-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=0a0a0b" alt="Instagram @ascend1211"></a>
+  <a href="https://github.com/bjjlops/ASCEND-Showcase"><img src="https://img.shields.io/badge/GitHub-ASCEND--Showcase-f5f2ea?style=for-the-badge&logo=github&logoColor=0a0a0b&labelColor=0a0a0b&color=f5f2ea" alt="GitHub repository"></a>
+</p>
+
+- 🌐 **Live:** [ascenddaily.app](https://ascenddaily.app)
+- 📸 **Instagram:** [@ascend1211](https://instagram.com/ascend1211)
+- 💻 **This repo:** [github.com/bjjlops/ASCEND-Showcase](https://github.com/bjjlops/ASCEND-Showcase)
+- 📄 **License:** [LICENSE](LICENSE) — docs and brand only; no code is licensed here.
 
 ---
 
-<p align="center"><sub>ASCEND · Plan · Focus · Review · Execute</sub></p>
+<p align="center">
+  <sub><b>ASCEND</b> · Plan · Focus · Review · Execute · <a href="https://instagram.com/ascend1211">@ascend1211</a></sub>
+</p>
