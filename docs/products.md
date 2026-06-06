@@ -1,7 +1,7 @@
 # Products
 
-A tour of the ASCEND ecosystem. Status labels here match what the public site advertises — ASCEND
-markets only what's real today.
+A tour of the **ASCEND Solutions** ecosystem. Status labels here match what the public site
+advertises — ASCEND markets only what's real today.
 
 ---
 
@@ -57,7 +57,8 @@ checklist — see **[security-and-safety.md](security-and-safety.md)**.
 APEX is the shared AI layer across ASCEND. It's designed to feel *disciplined, precise, calm, and
 useful* — and it's deliberately constrained.
 
-**How APEX behaves**
+**How APEX is designed to behave** (APEX is in development and pre-launch, so these are design rules
+— not a claim that it already runs against live models):
 
 - Prefers structured plans over vague encouragement.
 - Uses deterministic product logic *before* it reaches for a model.

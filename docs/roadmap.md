@@ -1,7 +1,7 @@
 # Roadmap
 
-A high-level, honest view of where ASCEND is and where it's heading. Dates are intentionally
-omitted — this is a solo-led project, and the order matters more than the calendar.
+A high-level, honest view of where **ASCEND Solutions** is and where it's heading. Dates are
+intentionally omitted — this is a solo-led project, and the order matters more than the calendar.
 
 ## Where it is today
 

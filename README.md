@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="ASCEND — Disciplined execution, by design." width="100%">
+  <img src="assets/banner.png" alt="ASCEND Solutions — Where solutions to people's struggles come to life." width="100%">
 </p>
 
 <p align="center">
@@ -9,11 +9,12 @@
   <img src="https://img.shields.io/badge/docs-only-8a8a93?style=flat-square" alt="Documentation only">
 </p>
 
-<h1 align="center">ASCEND</h1>
+<h1 align="center">ASCEND Solutions</h1>
 
 <p align="center">
-  <b>A premium, security-first ecosystem for disciplined execution.</b><br>
-  Plan your days, build focus, and research markets — with an AI layer built to be trusted, not hyped.
+  <b><i>Where solutions to people's struggles come to life.</i></b><br>
+  A premium, security-first ecosystem for disciplined execution — plan your days, build focus, and
+  research markets, with an AI layer built to be trusted, not hyped.
 </p>
 
 <p align="center">
@@ -24,19 +25,23 @@
 
 > [!NOTE]
 > **This is a showcase repository.** It contains documentation, architecture write-ups, brand
-> guidance, and the engineering lessons I've collected building ASCEND. **There is no application
-> source code here** — by design. It's the public window into the work, not the work itself.
+> guidance, and the engineering lessons I've collected building ASCEND Solutions. **There is no
+> application source code here** — by design. It's the public window into the work, not the work
+> itself.
 
-## What is ASCEND?
+## What is ASCEND Solutions?
 
-ASCEND is a multi-product ecosystem I'm building around three ideas: **disciplined execution,
-premium design, and AI you can actually trust.** It's one coherent platform with distinct
-surfaces — a planner for your days, a trading-research workbench, and a shared intelligence
-layer called **APEX** that ties them together.
+**ASCEND Solutions** exists to turn real struggles into tools people can actually use. It's a
+multi-product ecosystem I'm building around three ideas: **disciplined execution, premium design,
+and AI you can actually trust.** One coherent platform with distinct surfaces — a planner for your
+days, a trading-research workbench, and a shared intelligence layer called **APEX** that ties them
+together.
 
-The throughline is restraint. ASCEND is deliberately honest about what it does and doesn't do:
-it suggests, it never guarantees; it researches, it never auto-trades; it assists, it never
-invents your data. That posture is the product.
+Every product starts from a real struggle — staying consistent, keeping focus, making a clearer
+decision — and turns it into something you can actually use. The throughline is restraint: ASCEND
+is deliberately honest about what it does and doesn't do. It suggests, it never guarantees; it
+researches, it never auto-trades; it assists, it never invents your data. That posture is the
+product.
 
 ## The products
 
@@ -49,7 +54,7 @@ invents your data. That posture is the product.
 
 > [!IMPORTANT]
 > **ASCEND Trader plans, validates, and journals — it does not place trades.** Order placement is
-> blocked at the server. There is no live, paper-order, margin, crypto, or short execution; any
+> blocked at the server. There is no live, paper-order, margin, crypto, options, or short execution; any
 > execution happens manually in your own broker. **ASCEND Trader is not financial advice.**
 
 See **[docs/products.md](docs/products.md)** for the full tour.
@@ -59,9 +64,9 @@ See **[docs/products.md](docs/products.md)** for the full tour.
 - **🔒 Security-first architecture.** The apps you run never hold privileged keys. All AI work
   happens behind a private platform boundary, and data access is scoped at the database layer.
   [How →](docs/security-and-safety.md)
-- **🤖 AI built to be trusted.** APEX prefers deterministic product logic before it ever calls a
-  model, states its assumptions, and never invents records, balances, or trades. Guardrails and
-  audit logging are part of the design, not an afterthought.
+- **🤖 AI built to be trusted.** APEX (in development) is built to prefer deterministic product
+  logic before it ever calls a model, to state its assumptions, and to never invent records,
+  balances, or trades. Guardrails and audit logging are designed in from day one, not bolted on.
 - **🛡️ Trading safety as a hard constraint.** Paper/simulation by default, order placement blocked
   server-side, and a written checklist that any future live path must clear first.
 - **🎚️ Honest marketing.** The public site advertises only what's real today. No vaporware, no
@@ -137,8 +142,9 @@ running engineering journal:
 
 ## About & connect
 
-ASCEND is designed and built by **Diego** — an ongoing, solo-led project, built deliberately,
-shipped honestly, and documented in the open here.
+**ASCEND Solutions** is designed and built by **Diego** — an ongoing, solo-led project, built
+deliberately, shipped honestly, and documented in the open here. *Where solutions to people's
+struggles come to life.*
 
 <p align="center">
   <a href="https://ascenddaily.app"><img src="https://img.shields.io/badge/Live-ascenddaily.app-e3b341?style=for-the-badge&labelColor=0a0a0b" alt="Live at ascenddaily.app"></a>
@@ -154,5 +160,5 @@ shipped honestly, and documented in the open here.
 ---
 
 <p align="center">
-  <sub><b>ASCEND</b> · Plan · Focus · Review · Execute · <a href="https://instagram.com/ascend1211">@ascend1211</a></sub>
+  <sub><b>ASCEND Solutions</b> · Plan · Focus · Review · Execute · <a href="https://instagram.com/ascend1211">@ascend1211</a></sub>
 </p>

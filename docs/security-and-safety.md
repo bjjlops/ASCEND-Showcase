@@ -1,7 +1,7 @@
 # Security & safety
 
-Security and safety aren't a feature of ASCEND; they're constraints the whole system is built
-around. This page describes the posture at a high level.
+Security and safety aren't a feature of ASCEND Solutions; they're constraints the whole system is
+built around. This page describes the posture at a high level.
 
 ## Credential discipline
 
@@ -26,16 +26,21 @@ another user's data, or call a model on ASCEND's account.
 
 ## AI guardrails
 
-The AI layer (APEX) is built to be trustworthy by construction:
+APEX is **in development** and pre-launch (see the [roadmap](roadmap.md)) — it does not yet run
+against live models. The points below are how it is **designed** to behave: the guardrails ship with
+the AI layer and are gated behind kill switches that stay off until it's ready.
+
+By design, the AI layer is trustworthy by construction:
 
 - **Deterministic-first** — where real product logic exists, it runs *before* a model is ever called.
-- **No invention** — APEX never fabricates records, balances, trades, or orders. If it doesn't know,
-  it says so.
+- **No invention** — APEX is built never to fabricate records, balances, trades, or orders. If it
+  doesn't know, it says so.
 - **Input redaction** — sensitive text is redacted before it's used to build prompts or context.
 - **Guardrails** — checks for prompt injection, for financial-advice overreach, for attribution, and
-  for evidence back the AI's outputs.
-- **Audit** — successful AI calls write audit records, with request IDs and cost tracking.
-- **Kill switches** — AI features sit behind flags that can be switched off.
+  for evidence backing the AI's outputs.
+- **Audit** — every successful AI call is designed to write an audit record, with request IDs and
+  cost tracking.
+- **Kill switches** — AI features sit behind flags that default to off.
 
 ## Trading safety
 

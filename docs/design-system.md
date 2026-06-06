@@ -1,7 +1,17 @@
 # Design system
 
-ASCEND should feel **direct, premium, and disciplined** — a command center, not a toy. The design
-language is restrained on purpose: it gets out of the way so the work can take focus.
+**ASCEND Solutions** should feel **direct, premium, and disciplined** — a command center, not a toy.
+The design language is restrained on purpose: it gets out of the way so the work can take focus.
+
+## The mark
+
+<img src="../assets/ascend-mark.png" alt="ASCEND Solutions mark" width="92" align="left">
+
+The mark is an upward **"A" peak** — ascent — in a black-to-gold gradient: a dark base lifting into
+gold, a summit reached. Give it room to breathe, keep it on a calm background, and never recolor or
+stretch it.
+
+<br clear="left">
 
 ## Color
 
@@ -49,6 +59,7 @@ ASCEND sounds **calm, precise, and high-agency.** Copy is concise, specific, and
 
 ## Naming
 
+- **ASCEND Solutions** — the umbrella brand and ecosystem. Tagline: *Where solutions to people's struggles come to life.*
 - **ASCEND Planner** — planning and discipline.
 - **ASCEND Web / ASCEND Mobile** — the desktop/tablet and native planner clients.
 - **ASCEND Trader** — trading research and risk analysis.

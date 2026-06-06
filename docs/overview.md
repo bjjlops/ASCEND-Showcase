@@ -6,14 +6,15 @@ Most productivity and trading tools fail in the same two ways: they over-promise
 over-reach. They promise motivation and outcomes they can't deliver, and they reach for your data,
 your credentials, and your trust faster than they earn it.
 
-**ASCEND is the opposite bet.** It's a premium ecosystem built around *disciplined execution* — the
-unglamorous work of planning a day, keeping a streak, reviewing what happened, and researching a
-decision before you make it. The software's job is to make that work clearer and calmer, not to
-hype it.
+**ASCEND Solutions is the opposite bet** — it's *where solutions to people's struggles come to
+life.* A premium ecosystem built around *disciplined execution*: the unglamorous work of planning a
+day, keeping a streak, reviewing what happened, and researching a decision before you make it. Every
+product starts from a real struggle and turns it into something usable. The software's job is to
+make that work clearer and calmer, not to hype it.
 
 ## The shape of the ecosystem
 
-ASCEND is one platform with several surfaces:
+ASCEND Solutions is one platform with several surfaces:
 
 - **ASCEND Planner** — the discipline product. Tasks, habits, schedules, streaks, and focus
   sessions, on **Web** (desktop/tablet) and **Mobile** (iOS & Android).

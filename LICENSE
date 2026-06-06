@@ -1,8 +1,8 @@
-ASCEND — Documentation & Brand Materials
+ASCEND Solutions — Documentation & Brand Materials
 Copyright (c) 2026 Diego. All rights reserved.
 
 This repository contains documentation, architecture write-ups, brand guidance,
-and project notes for the ASCEND ecosystem. It contains NO application source
+and project notes for the ASCEND Solutions ecosystem. It contains NO application source
 code, and none is licensed here.
 
 You are welcome to:
@@ -11,14 +11,16 @@ You are welcome to:
   - Quote short excerpts with attribution (e.g. for commentary or review).
 
 You may not, without prior written permission:
-  - Reproduce or rebuild the ASCEND products or any part of them.
-  - Use the ASCEND name, wordmark, logo, or brand assets for your own products
-    or services.
+  - Reproduce or rebuild the ASCEND Solutions products or any part of them.
+  - Use the ASCEND Solutions name, the ASCEND family of product names (ASCEND
+    Planner, ASCEND Trader, APEX), or the associated wordmark, logo, or brand
+    assets for your own products or services.
   - Use these materials, in whole or in substantial part, for commercial
     purposes.
 
-The ASCEND name and brand are property of the author. Nothing in this repository
-is financial advice. See docs/security-and-safety.md for the trading-safety
+The ASCEND Solutions name, the ASCEND family of product names, and the associated
+brand are property of the author. Nothing in this repository is financial advice.
+See docs/security-and-safety.md for the trading-safety
 posture of ASCEND Trader.
 
 THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.

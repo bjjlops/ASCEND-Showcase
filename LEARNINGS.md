@@ -1,7 +1,8 @@
 # What I've been learning
 
-> A running engineering journal from building ASCEND. This is the honest part — the decisions, the
-> dead ends, and the lessons that actually changed how I work. No code, just what I took away.
+> A running engineering journal from building **ASCEND Solutions**. This is the honest part — the
+> decisions, the dead ends, and the lessons that actually changed how I work. No code, just what I
+> took away.
 
 Building a multi-product platform mostly solo has taught me more than any single feature ever
 could. These are the lessons I keep coming back to.
@@ -55,6 +56,9 @@ What actually built trust:
 - **State assumptions out loud** when the data is incomplete.
 - **Redact before prompting**, guard against injection and advice-overreach, and **audit** every
   successful call.
+
+*(APEX is still pre-launch — these are the rules it ships with, not a claim that it already runs
+against live models.)*
 
 The counterintuitive part: the constraints made the AI *more* useful, not less. People trust a tool
 that knows its limits.

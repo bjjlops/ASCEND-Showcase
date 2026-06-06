@@ -1,8 +1,8 @@
 # Architecture (conceptual)
 
-> This is a high-level, conceptual description of how ASCEND is put together. It is intentionally
-> light on internals — there is no source code, no API contract, and no infrastructure detail here.
-> The point is to show *how the system thinks*, not how to rebuild it.
+> This is a high-level, conceptual description of how ASCEND Solutions is put together. It is
+> intentionally light on internals — there is no source code, no API contract, and no
+> infrastructure detail here. The point is to show *how the system thinks*, not how to rebuild it.
 
 ## The core principle: a private AI boundary
 
