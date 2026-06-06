@@ -1,0 +1,23 @@
+# This is a documentation-only repository. Nothing here should ever be a secret,
+# but these guards keep accidental drops out of history.
+
+# Environment / secrets
+.env
+.env.*
+*.local
+*.pem
+*.key
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Dependency / build artifacts (none belong here)
+node_modules/
+dist/
+build/
+.next/
+out/

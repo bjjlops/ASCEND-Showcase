@@ -1,0 +1,148 @@
+<p align="center">
+  <img src="assets/banner.svg" alt="ASCEND — Disciplined execution, by design." width="100%">
+</p>
+
+<p align="center">
+  <a href="https://ascenddaily.app"><img src="https://img.shields.io/badge/web%20planner-live-1f9d55?style=flat-square" alt="Web planner live"></a>
+  <img src="https://img.shields.io/badge/mobile-in%20development-e3b341?style=flat-square" alt="Mobile in development">
+  <img src="https://img.shields.io/badge/trader-research%20preview-3b82f6?style=flat-square" alt="Trader research preview">
+  <img src="https://img.shields.io/badge/docs-only-8a8a93?style=flat-square" alt="Documentation only">
+</p>
+
+<h1 align="center">ASCEND</h1>
+
+<p align="center">
+  <b>A premium, security-first ecosystem for disciplined execution.</b><br>
+  Plan your days, build focus, and research markets — with an AI layer built to be trusted, not hyped.
+</p>
+
+<p align="center">
+  🌐 <a href="https://ascenddaily.app"><b>ascenddaily.app</b></a>
+</p>
+
+---
+
+> [!NOTE]
+> **This is a showcase repository.** It contains documentation, architecture write-ups, brand
+> guidance, and the engineering lessons I've collected building ASCEND. **There is no application
+> source code here** — by design. It's the public window into the work, not the work itself.
+
+## What is ASCEND?
+
+ASCEND is a multi-product ecosystem I'm building around three ideas: **disciplined execution,
+premium design, and AI you can actually trust.** It's one coherent platform with distinct
+surfaces — a planner for your days, a trading-research workbench, and a shared intelligence
+layer called **APEX** that ties them together.
+
+The throughline is restraint. ASCEND is deliberately honest about what it does and doesn't do:
+it suggests, it never guarantees; it researches, it never auto-trades; it assists, it never
+invents your data. That posture is the product.
+
+## The products
+
+| Product | What it does | Status |
+| --- | --- | --- |
+| **ASCEND Planner — Web** | Desktop/tablet planner: tasks, habits, schedule, streaks, focus sessions, and APEX planning support. | 🟢 **Live** — free in early access |
+| **ASCEND Planner — Mobile** | The same planner, native on iOS & Android (Expo / React Native). | 🟡 **In development** — no store links until published |
+| **ASCEND Trader** | A safety-first workbench to research setups, validate risk, backtest, and journal trades. | 🔵 **Research preview** |
+| **APEX** | The shared AI intelligence layer — planning help, structured analysis, and coaching. | 🟡 **In development** |
+
+> [!IMPORTANT]
+> **ASCEND Trader plans, validates, and journals — it does not place trades.** Order placement is
+> blocked at the server. There is no live, paper-order, margin, crypto, or short execution; any
+> execution happens manually in your own broker. **ASCEND Trader is not financial advice.**
+
+See **[docs/products.md](docs/products.md)** for the full tour.
+
+## What makes it different
+
+- **🔒 Security-first architecture.** The apps you run never hold privileged keys. All AI work
+  happens behind a private platform boundary, and data access is scoped at the database layer.
+  [How →](docs/security-and-safety.md)
+- **🤖 AI built to be trusted.** APEX prefers deterministic product logic before it ever calls a
+  model, states its assumptions, and never invents records, balances, or trades. Guardrails and
+  audit logging are part of the design, not an afterthought.
+- **🛡️ Trading safety as a hard constraint.** Paper/simulation by default, order placement blocked
+  server-side, and a written checklist that any future live path must clear first.
+- **🎚️ Honest marketing.** The public site advertises only what's real today. No vaporware, no
+  "subscribe now" buttons that don't charge, no store links for unpublished apps.
+- **🎨 A disciplined design language.** Black, charcoal, and gold. Calm, specific copy. Premium
+  without the noise. [Design system →](docs/design-system.md)
+
+## Architecture at a glance
+
+ASCEND apps talk to a private AI platform — they never call model providers directly, and they
+never hold model or service-role credentials. Shared contracts keep every surface in agreement.
+
+```mermaid
+flowchart LR
+  User(["You"])
+
+  subgraph Apps["Apps you run"]
+    Web["Planner — Web"]
+    Mobile["Planner — Mobile"]
+    Trader["Trader"]
+  end
+
+  subgraph Platform["Private platform"]
+    APEX["APEX / AI boundary"]
+    Contracts["Shared contracts"]
+  end
+
+  subgraph Data["Scoped data"]
+    PlannerDB[("Planner data<br/>row-level security")]
+    Research[("Trader research<br/>read-only")]
+    Audit[("Audit + telemetry")]
+  end
+
+  Site["Marketing site<br/>(no secrets, no data)"]
+
+  User --> Site
+  User --> Web & Mobile & Trader
+  Web & Mobile --> APEX
+  APEX --> Contracts
+  APEX --> PlannerDB
+  APEX --> Research
+  APEX --> Audit
+```
+
+> This diagram is intentionally high-level. The implementation lives in private repositories.
+> Full conceptual write-up: **[docs/architecture.md](docs/architecture.md)**.
+
+## Tech stack
+
+`TypeScript (strict)` · `Next.js (App Router) + React` · `Expo / React Native` · `Tailwind CSS`
+· `Supabase (Auth, Postgres, RLS)` · `Zod contracts` · `pnpm workspaces + Turborepo` ·
+hybrid deploy across `Vercel` and `Cloudflare`.
+
+## What I've been learning
+
+The most valuable output of this project isn't any one feature — it's everything building it has
+taught me about architecture, security, AI safety, and shipping with discipline. I keep that as a
+running engineering journal:
+
+➡️ **[LEARNINGS.md](LEARNINGS.md)** — the lessons, the mistakes, and the decisions behind them.
+
+## Documentation map
+
+| Doc | What's inside |
+| --- | --- |
+| [docs/overview.md](docs/overview.md) | The vision, the problem, and the shape of the ecosystem |
+| [docs/products.md](docs/products.md) | Every product, what it owns, and its honest status |
+| [docs/architecture.md](docs/architecture.md) | The conceptual architecture and engineering principles |
+| [docs/security-and-safety.md](docs/security-and-safety.md) | Security model + trading-safety posture |
+| [docs/design-system.md](docs/design-system.md) | Brand, color, type, and voice |
+| [docs/roadmap.md](docs/roadmap.md) | Where ASCEND is and where it's going |
+| [LEARNINGS.md](LEARNINGS.md) | The engineering journal |
+
+## About
+
+ASCEND is designed and built by **Diego**. It's an ongoing, solo-led project — built deliberately,
+shipped honestly, and documented in the open here.
+
+- 🌐 Live: **[ascenddaily.app](https://ascenddaily.app)**
+- 📄 License: see **[LICENSE](LICENSE)** — docs and brand only; no code is licensed here.
+
+---
+
+<p align="center"><sub>ASCEND · Plan · Focus · Review · Execute</sub></p>
