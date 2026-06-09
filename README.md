@@ -60,6 +60,34 @@ product.
 
 See **[docs/products.md](docs/products.md)** for the full tour.
 
+## 🟢 Recent updates
+
+> The latest production change, up top. Full product release notes →
+> **[docs/recent-updates.md](docs/recent-updates.md)** · engineering ship log →
+> **[docs/showcase-log.md](docs/showcase-log.md)** · thematic summary →
+> **[docs/changelog.md](docs/changelog.md)** · status board → **[docs/roadmap.md](docs/roadmap.md)**.
+
+### 2026-06-08 — APEX is live across ASCEND, and there's now one login
+
+AI is switched **on in production.** In the Planner, **APEX** now answers grounded in your real
+schedule — day analysis, weekly summaries, and a chat that suggests your next action in plain
+language. In the Trader, there's an AI **coach**, a research summarizer, risk review, and strategy
+extraction. It all runs behind the private AI boundary (guardrailed, audited, **kill-switchable**),
+routed through a Cloudflare Worker to the **Nyquest** multi-model gateway with **real per-call cost
+capture.** Sign-in is now unified — **one account works across the Planner and the Trader.**
+Real-money trading stays **off by design.**
+
+<p align="center">
+  <img src="assets/screenshots/planner-apex.png" width="49%" alt="APEX workspace — grounded in your real plan">
+  <img src="assets/screenshots/trader-coach.png" width="49%" alt="Trader trade coach">
+</p>
+<p align="center"><sub><b>Left:</b> APEX, grounded in your real plan. <b>Right:</b> the Trader's reflective coach — no buy/sell signals, no price predictions.</sub></p>
+
+<p align="center">
+  <img src="assets/screenshots/platform-usage.png" width="62%" alt="Nyquest usage — real per-call cost capture">
+</p>
+<p align="center"><sub>Honestly metered — real per-call cost capture, auto-routing across models (deepseek · claude-haiku · qwen).</sub></p>
+
 ## What makes it different
 
 - **🔒 Security-first architecture.** The apps you run never hold privileged keys. All AI work
@@ -135,14 +163,6 @@ flowchart LR
 More — Trader news, the economic calendar, watchlist, and read-only broker connect — in the full
 visual tour: **[docs/gallery.md](docs/gallery.md)**.
 
-## What's new
-
-APEX went live, Trader became a full research workbench, the apps got one shared login, and the whole
-thing consolidated into one monorepo. The dated, blow-by-blow record (including the bugs) is in
-**[docs/showcase-log.md](docs/showcase-log.md)**; the thematic summary is in
-**[docs/changelog.md](docs/changelog.md)**; the forward-looking status board is in
-**[docs/roadmap.md](docs/roadmap.md)**.
-
 ## Tech stack
 
 `TypeScript (strict)` · `Next.js (App Router) + React` · `Expo / React Native` · `Tailwind CSS`
@@ -168,6 +188,7 @@ running engineering journal:
 | [docs/tech-stack.md](docs/tech-stack.md) | The stack and the monorepo workspace map |
 | [docs/security-and-safety.md](docs/security-and-safety.md) | Security model + trading-safety posture |
 | [docs/design-system.md](docs/design-system.md) | Brand, color, type, and voice |
+| [docs/recent-updates.md](docs/recent-updates.md) | **Recent updates** — product release notes + screenshots |
 | [docs/changelog.md](docs/changelog.md) | **What's been updated** — the thematic milestone log |
 | [docs/showcase-log.md](docs/showcase-log.md) | **Ship log** — dated, blow-by-blow record |
 | [docs/roadmap.md](docs/roadmap.md) | **Status board** — done, in progress, next, gated |
