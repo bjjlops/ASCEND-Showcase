@@ -170,6 +170,26 @@ beats announcing ten.
 
 ---
 
+## 10. Going live is a test of your constraints, not your features
+
+For a long time APEX was "designed to be safe but switched off." Turning it **on** in production was
+the real exam — because the temptation, the moment something works, is to relax the rules that made
+it slow.
+
+I didn't. APEX went live still **deterministic-first**, still **guarded** (injection, advice limits,
+no-invention, evidence floors), still **kill-switchable**, and still reaching models only through a
+single private, server-side gateway. The flip from off to on changed exactly one thing — whether a
+model is allowed to run — and nothing about what it's allowed to *do*.
+
+The same held for surfacing Trader as "live": it became genuinely usable (research, paper/sim,
+journaling, a coach) without the order endpoint ever becoming un-blocked. Live didn't mean *more
+power*; it meant *the same constraints, now in front of real people.*
+
+**Lesson:** the discipline isn't in building the guardrails — it's in keeping them when the feature
+finally works. Ship the constraints, not just the capability.
+
+---
+
 ## The throughline
 
 Almost every lesson here is the same lesson wearing different clothes: **restraint scales.**

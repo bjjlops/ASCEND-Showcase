@@ -3,9 +3,10 @@
 </p>
 
 <p align="center">
-  <a href="https://ascenddaily.app"><img src="https://img.shields.io/badge/web%20planner-live-1f9d55?style=flat-square" alt="Web planner live"></a>
-  <img src="https://img.shields.io/badge/mobile-in%20development-e3b341?style=flat-square" alt="Mobile in development">
-  <img src="https://img.shields.io/badge/trader-research%20preview-3b82f6?style=flat-square" alt="Trader research preview">
+  <a href="https://ascenddaily.app"><img src="https://img.shields.io/badge/web%20planner-live-167455?style=flat-square" alt="Web planner live"></a>
+  <img src="https://img.shields.io/badge/APEX-live%20·%20early%20access-b9841f?style=flat-square" alt="APEX live, early access">
+  <img src="https://img.shields.io/badge/trader-live%20·%20research%20only-236b5a?style=flat-square" alt="Trader live, research only">
+  <img src="https://img.shields.io/badge/mobile-in%20development-9b650b?style=flat-square" alt="Mobile in development">
   <img src="https://img.shields.io/badge/docs-only-8a8a93?style=flat-square" alt="Documentation only">
 </p>
 
@@ -49,8 +50,8 @@ product.
 | --- | --- | --- |
 | **ASCEND Planner — Web** | Desktop/tablet planner: tasks, habits, schedule, streaks, focus sessions, and APEX planning support. | 🟢 **Live** — free in early access |
 | **ASCEND Planner — Mobile** | The same planner, native on iOS & Android (Expo / React Native). | 🟡 **In development** — no store links until published |
-| **ASCEND Trader** | A safety-first workbench to research setups, validate risk, backtest, and journal trades. | 🔵 **Research preview** |
-| **APEX** | The shared AI intelligence layer — planning help, structured analysis, and coaching. | 🟡 **In development** |
+| **ASCEND Trader** | A safety-first workbench to research setups, validate risk, backtest, journal, and coach — it never places trades. | 🔵 **Live — research only** |
+| **APEX** | The shared AI intelligence layer — planning help, structured analysis, and coaching. | 🟢 **Live — early access** |
 
 > [!IMPORTANT]
 > **ASCEND Trader plans, validates, and journals — it does not place trades.** Order placement is
@@ -64,9 +65,10 @@ See **[docs/products.md](docs/products.md)** for the full tour.
 - **🔒 Security-first architecture.** The apps you run never hold privileged keys. All AI work
   happens behind a private platform boundary, and data access is scoped at the database layer.
   [How →](docs/security-and-safety.md)
-- **🤖 AI built to be trusted.** APEX (in development) is built to prefer deterministic product
-  logic before it ever calls a model, to state its assumptions, and to never invent records,
-  balances, or trades. Guardrails and audit logging are designed in from day one, not bolted on.
+- **🤖 AI built to be trusted.** APEX is **live in early access** — and the constraints held when it
+  went live. It prefers deterministic product logic before it ever calls a model, states its
+  assumptions, and never invents records, balances, or trades. Guardrails and kill-switches were
+  designed in from day one, not bolted on.
 - **🛡️ Trading safety as a hard constraint.** Paper/simulation by default, order placement blocked
   server-side, and a written checklist that any future live path must clear first.
 - **🎚️ Honest marketing.** The public site advertises only what's real today. No vaporware, no
@@ -89,9 +91,10 @@ flowchart LR
     Trader["Trader"]
   end
 
-  subgraph Platform["Private platform"]
-    APEX["APEX / AI boundary"]
+  subgraph Platform["Private AI platform"]
+    APEX["APEX / AI boundary<br/>(guardrails + audit)"]
     Contracts["Shared contracts"]
+    Gateway["Nyquest gateway"]
   end
 
   subgraph Data["Scoped data"]
@@ -100,25 +103,50 @@ flowchart LR
     Audit[("Audit + telemetry")]
   end
 
-  Site["Marketing site<br/>(no secrets, no data)"]
+  Hub["Hub / sign-in<br/>(no model, no privileged data)"]
 
-  User --> Site
+  User --> Hub
   User --> Web & Mobile & Trader
-  Web & Mobile --> APEX
+  Web & Mobile & Trader --> APEX
   APEX --> Contracts
+  APEX --> Gateway
   APEX --> PlannerDB
   APEX --> Research
   APEX --> Audit
 ```
 
-> This diagram is intentionally high-level. The implementation lives in private repositories.
-> Full conceptual write-up: **[docs/architecture.md](docs/architecture.md)**.
+> This diagram is intentionally high-level. The implementation lives in a private monorepo.
+> Full conceptual write-up + deployment, identity, and request-lifecycle diagrams:
+> **[docs/architecture.md](docs/architecture.md)**.
+
+## Screenshots
+
+<p align="center">
+  <img src="assets/screenshots/trader-dashboard.png" width="100%" alt="ASCEND Trader dashboard">
+</p>
+<p align="center"><sub><b>ASCEND Trader</b> — market pulse, your edge, and the trade coach in one place.</sub></p>
+
+<p align="center">
+  <img src="assets/screenshots/planner-planner.png" width="49%" alt="ASCEND Planner weekly view">
+  <img src="assets/screenshots/trader-safety.png" width="49%" alt="ASCEND Trader safety model">
+</p>
+<p align="center"><sub><b>Left:</b> the Planner week grid. <b>Right:</b> Trader's safety model — you execute manually; ASCEND never sends an order.</sub></p>
+
+More — Trader news, the economic calendar, watchlist, and read-only broker connect — in the full
+visual tour: **[docs/gallery.md](docs/gallery.md)**.
+
+## What's new
+
+APEX went live, Trader became a full research workbench, and the whole thing consolidated into one
+monorepo. The honest, grouped log is in **[docs/changelog.md](docs/changelog.md)**; the forward-looking
+status board is in **[docs/roadmap.md](docs/roadmap.md)**.
 
 ## Tech stack
 
 `TypeScript (strict)` · `Next.js (App Router) + React` · `Expo / React Native` · `Tailwind CSS`
-· `Supabase (Auth, Postgres, RLS)` · `Zod contracts` · `pnpm workspaces + Turborepo` ·
-hybrid deploy across `Vercel` and `Cloudflare`.
+· `Supabase (Auth, Postgres, RLS)` · `Zod contracts` · `pnpm workspaces + Turborepo` · a private
+AI platform on `Cloudflare Workers` reaching models via the `Nyquest` gateway · hybrid deploy across
+`Vercel` and `Cloudflare`. See **[docs/tech-stack.md](docs/tech-stack.md)** for the full map.
 
 ## What I've been learning
 
@@ -134,10 +162,13 @@ running engineering journal:
 | --- | --- |
 | [docs/overview.md](docs/overview.md) | The vision, the problem, and the shape of the ecosystem |
 | [docs/products.md](docs/products.md) | Every product, what it owns, and its honest status |
-| [docs/architecture.md](docs/architecture.md) | The conceptual architecture and engineering principles |
+| [docs/architecture.md](docs/architecture.md) | The conceptual architecture + diagrams (Mermaid) |
+| [docs/tech-stack.md](docs/tech-stack.md) | The stack and the monorepo workspace map |
 | [docs/security-and-safety.md](docs/security-and-safety.md) | Security model + trading-safety posture |
 | [docs/design-system.md](docs/design-system.md) | Brand, color, type, and voice |
-| [docs/roadmap.md](docs/roadmap.md) | Where ASCEND is and where it's going |
+| [docs/changelog.md](docs/changelog.md) | **What's been updated** — the milestone log |
+| [docs/roadmap.md](docs/roadmap.md) | **Status board** — done, in progress, next, gated |
+| [docs/gallery.md](docs/gallery.md) | Product screenshots |
 | [LEARNINGS.md](LEARNINGS.md) | The engineering journal |
 
 ## About & connect

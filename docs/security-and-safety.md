@@ -12,10 +12,15 @@ The rule is simple and absolute: **the things you run hold the least power possi
   never in browser-visible variables, never prefixed as public.
 - **Privileged database keys** are never placed in app repositories. Privileged access is reserved
   for a narrow, audited slice of platform-only code.
+- **Broker credentials**, where present, are server-only and used solely for read-only readiness
+  checks. The platform's environment validation actively **refuses to start** if a forbidden broker
+  write-credential is present.
 - Secrets stay server-side and are never returned by an API response, logged, or rendered.
 
-If an app build were fully exposed tomorrow, it would reveal nothing that could move money, read
-another user's data, or call a model on ASCEND's account.
+This is also enforced in **CI**: an **AI-boundary guard** fails the build if a model-provider key,
+a privileged database key, or a dangerous client import ever drifts toward an app. If an app build
+were fully exposed tomorrow, it would reveal nothing that could move money, read another user's data,
+or call a model on ASCEND's account.
 
 ## Scoped data access
 
@@ -26,31 +31,38 @@ another user's data, or call a model on ASCEND's account.
 
 ## AI guardrails
 
-APEX is **in development** and pre-launch (see the [roadmap](roadmap.md)) — it does not yet run
-against live models. The points below are how it is **designed** to behave: the guardrails ship with
-the AI layer and are gated behind kill switches that stay off until it's ready.
+APEX is **now live in early access** (see the [roadmap](roadmap.md)) — it runs against real models in
+production, reached only through **Nyquest**, one private, server-side gateway. Going live didn't loosen the
+guardrails; they ship **active**, and every AI feature sits behind a **kill-switch flag** that can
+turn it off instantly.
 
 By design, the AI layer is trustworthy by construction:
 
 - **Deterministic-first** — where real product logic exists, it runs *before* a model is ever called.
 - **No invention** — APEX is built never to fabricate records, balances, trades, or orders. If it
-  doesn't know, it says so.
+  doesn't know, it says so. Output validators block fabricated trades and invented numbers.
 - **Input redaction** — sensitive text is redacted before it's used to build prompts or context.
-- **Guardrails** — checks for prompt injection, for financial-advice overreach, for attribution, and
-  for evidence backing the AI's outputs.
-- **Audit** — every successful AI call is designed to write an audit record, with request IDs and
-  cost tracking.
-- **Kill switches** — AI features sit behind flags that default to off.
+- **Guardrails** — checks for prompt injection, for financial-advice overreach, for attribution, for
+  an evidence floor (a model can downgrade its confidence, never inflate it), and for no
+  profit-guarantee language.
+- **Audit + cost** — AI calls are designed to write an audit record with request IDs, and model cost
+  is tracked. *(Audit persistence is still being hardened — the decision points and cost tracking are
+  wired; durable storage of the audit trail is in progress.)*
+- **Kill switches + rate limits** — AI features sit behind flags, and the platform rate-limits requests.
 
 ## Trading safety
 
-ASCEND Trader is a **research and risk-analysis** product. Its safety model is deliberate and strict:
+ASCEND Trader is a **research and risk-analysis** product. Its safety model is deliberate, strict,
+and structural — not a setting:
 
-- **No live order placement exists.** The order endpoint returns a blocked response.
-- Live trading is **disabled** and order placement is **off** by default and by policy.
-- Default mode is **paper / simulation**.
-- Broker credentials (where present at all) are used only for readiness and safety checks — never to
-  trade — and are never logged, displayed, committed, or pasted anywhere.
+- **No live order placement exists.** The order endpoint returns a **blocked** response server-side,
+  by policy.
+- Live trading is **disabled** and order placement is **off** by default — and the unsafe defaults
+  are guarded: a **CI safety check** fails the build if the live-trading or order-placement defaults
+  are ever flipped on.
+- Default mode is **paper / simulation**, including a paper-runner **kill switch**.
+- Broker credentials (where present at all) are used only for **read-only** readiness and safety
+  checks — never to trade — and are never logged, displayed, committed, or pasted anywhere.
 - **ASCEND Trader is not financial advice.**
 
 ### The future-live checklist
@@ -72,9 +84,10 @@ Until every item is met, execution stays manual and in the user's own broker.
 Safety includes not lying to users:
 
 - The marketing site advertises only what's real. No store links for unpublished apps.
-- Payment flows are scaffolded but disabled — no charges, and no fake "payment success" states,
-  until billing is genuinely enabled.
-- Product status is stated plainly: live, in development, or research preview.
+- Payment flows run in **test mode** — no charges, and no fake "payment success" states — until
+  billing is genuinely enabled. A paid entitlement is granted only by a verified server-side webhook,
+  never by a client claim.
+- Product status is stated plainly: live, in development, research only, or test mode.
 
-> The guiding idea: **trust is earned by what the system refuses to do.** ASCEND's safety choices
-> are structural, so they hold even when no one is watching.
+> The guiding idea: **trust is earned by what the system refuses to do.** ASCEND's safety choices are
+> structural, so they hold even when no one is watching.

@@ -20,10 +20,12 @@ ASCEND Solutions is one platform with several surfaces:
   sessions, on **Web** (desktop/tablet) and **Mobile** (iOS & Android).
 - **ASCEND Trader** — a safety-first trading *research* workbench: plan setups, validate risk,
   backtest, and journal. It does not execute trades.
-- **APEX** — the shared AI intelligence layer. It helps you plan, reviews your habits and streaks,
-  and offers structured analysis. APEX is a *feature* of the products, not a standalone chatbot.
-- **The marketing site** — a public front door at [ascenddaily.app](https://ascenddaily.app) that
-  explains the ecosystem and links people to the apps. It holds no user data and no secrets.
+- **APEX** — the shared AI intelligence layer, **now live in early access**. It helps you plan,
+  reviews your habits and streaks, and offers structured analysis — deterministic-first and
+  guardrailed. APEX is a *feature* of the products, not a standalone chatbot.
+- **The hub / marketing site** — a public front door at [ascenddaily.app](https://ascenddaily.app)
+  that explains the ecosystem, handles sign-in once, and routes you into the apps via an /app
+  launcher. It holds no model access and no privileged data.
 
 ## The principles
 
@@ -45,6 +47,8 @@ non-negotiable.
 ## Where to go next
 
 - The full product tour: **[products.md](products.md)**
-- How it's built (conceptually): **[architecture.md](architecture.md)**
+- How it's built (conceptually) + diagrams: **[architecture.md](architecture.md)**
+- The stack and workspace map: **[tech-stack.md](tech-stack.md)**
 - The safety posture: **[security-and-safety.md](security-and-safety.md)**
+- What recently changed: **[changelog.md](changelog.md)** · where it's going: **[roadmap.md](roadmap.md)**
 - The lessons from building it: **[../LEARNINGS.md](../LEARNINGS.md)**
