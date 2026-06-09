@@ -128,10 +128,11 @@ flowchart LR
   subgraph Data["Scoped data"]
     PlannerDB[("Planner data<br/>row-level security")]
     Research[("Trader research<br/>read-only")]
-    Audit[("Audit + telemetry")]
+    Audit[("Audit + cost ledger")]
   end
 
   Hub["Hub / sign-in<br/>(no model, no privileged data)"]
+  Control["Control<br/>(internal admin · gated)"]
 
   User --> Hub
   User --> Web & Mobile & Trader
@@ -141,6 +142,7 @@ flowchart LR
   APEX --> PlannerDB
   APEX --> Research
   APEX --> Audit
+  Control -. "admin-only read" .-> Audit
 ```
 
 > This diagram is intentionally high-level. The implementation lives in a private monorepo.

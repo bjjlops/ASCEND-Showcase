@@ -28,6 +28,7 @@ there's no source here.
 | **web-planner** | The web planner — tasks, habits, streaks, focus, stats, APEX | 🟢 Live |
 | **trader** | Research & risk workbench — research, paper/sim, journal, coach (no execution) | 🔵 Live, research only |
 | **ai-platform** | The private AI boundary — guardrails, audit, the only thing with model access | 🟢 Live |
+| **control** | Internal admin command center — accounts, subscriptions, AI cost ledger, audit (not customer-facing) | 🟢 Internal |
 | **mobile** | Native planner (Expo) | 🟡 In development |
 
 ## Shared packages

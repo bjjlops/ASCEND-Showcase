@@ -101,6 +101,7 @@ flowchart TB
     WebP["web-planner"]
     Trd["trader"]
     AIP["ai-platform<br/>(private boundary)"]
+    Ctl["control<br/>(internal admin)"]
   end
 
   subgraph pkgs["packages/ · shared platform layer"]
@@ -118,10 +119,11 @@ flowchart TB
   WebP --> Auth & UI & Tokens & Config & AIClient & Contracts
   Trd --> Auth & UI & Tokens & Config & AIClient & Contracts
   AIP --> Contracts
+  Ctl --> Auth & UI & Tokens & Config & Ent & Bill
 
   classDef app fill:#151a15,stroke:#236b5a,color:#f4f6ef;
   classDef pkg fill:#0d100e,stroke:#b9841f,color:#f4f6ef;
-  class Hub,WebP,Trd,AIP app;
+  class Hub,WebP,Trd,AIP,Ctl app;
   class Contracts,AIClient,Auth,UI,Tokens,Config,Ent,Bill pkg;
 ```
 
@@ -144,6 +146,8 @@ ASCEND is organized so each part owns one thing well, and is explicitly forbidde
 - **Trader** owns research, risk, and trading-safety tooling. It knows nothing about planner logic.
 - **The AI platform** owns intelligence, guardrails, and audit. It owns no UI.
 - **The hub / marketing site** owns presentation and identity. It owns no model and no privileged data.
+- **Control** owns *observation and administration* — never product features. It reads widely (under
+  strict gates), writes only audited admin actions, and calls no models.
 
 These boundaries are written down and enforced — cross-product coupling is treated as a defect, not
 a shortcut, and a CI **AI-boundary guard** fails the build if a forbidden key ever drifts toward an app.
@@ -184,6 +188,69 @@ sequenceDiagram
 - Trader research is exposed to the platform as **read-only**. The platform can read research; it
   cannot touch orders, broker credentials, or live account state.
 - Privileged database access is reserved for a narrow, audited slice of platform-only code.
+
+## The internal control plane
+
+ASCEND has one more surface that users never see: **ASCEND Control**, an internal admin command
+center. It's the operator's view of the platform — accounts (a 360° view), access approvals and
+gating, subscriptions and revenue, **AI usage and a per-call cost ledger**, Stripe webhook
+deliveries, live system health, and an **immutable audit log** of every privileged action. It is
+deliberately the *most*-guarded thing in the system, because it's the one place with a wide-angle,
+privileged read.
+
+**Three walls guard it — defense in depth, fail-closed at each step:**
+
+1. **Network** — it sits behind **Cloudflare Access**; you can't even reach it without passing the
+   edge identity gate.
+2. **Origin re-verify** — the app re-verifies that Access identity at its *own* origin (it doesn't
+   trust the edge blindly) and requires a valid signed-in session.
+3. **Admin allowlist** — the signed-in user must also be an **admin**, enforced by a database-level
+   security-definer check over an admin-roles table. Every page checks it; every mutating action
+   re-checks it.
+
+Privilege is kept narrow and audited. The broad, RLS-bypassing service role is used **only** for
+aggregate reads (usage/cost, entitlements, webhooks, health); account changes go through audited,
+self-gating database functions, and **every privileged action is written to an append-only audit
+log.** Control's own assistant is **deterministic** — it answers from live data and never calls a
+model, so the admin tool adds no model cost and no model risk.
+
+### The AI cost ledger, end to end
+
+Going live on real models created a new requirement: know exactly what each call costs. The AI
+platform now writes a **usage event per request** — tokens, model, status, latency, and **real cost**
+— into a ledger, *fire-and-forget* so it never slows a user's response. Control reads that ledger to
+show spend by model, by product, and by account.
+
+```mermaid
+flowchart LR
+  subgraph Plat["Private AI platform"]
+    Call["AI call"]
+    Sink["Usage sink<br/>(fire-and-forget)"]
+  end
+
+  subgraph Data["Planner database"]
+    Events[("ai_usage_events<br/>per call: tokens · cost · status")]
+    Daily[("ai_usage_daily<br/>rollup view")]
+  end
+
+  Control["ASCEND Control<br/>(internal · admin-only)"]
+
+  Call --> Sink -->|"service role · idempotent"| Events
+  Events --> Daily
+  Daily -->|"read"| Control
+  Events -->|"sample / drill-down"| Control
+
+  classDef b fill:#0d100e,stroke:#b9841f,color:#f4f6ef;
+  classDef c fill:#090c0a,stroke:#275f9f,color:#f4f6ef;
+  classDef a fill:#151a15,stroke:#236b5a,color:#f4f6ef;
+  class Call,Sink b;
+  class Events,Daily c;
+  class Control a;
+```
+
+The write is **idempotent** — one row per request id, so retries are no-ops and at-least-once
+delivery can't double-count. That's what makes the "real per-call cost" number trustworthy rather
+than a guess.
 
 ## Deployed as a hybrid
 

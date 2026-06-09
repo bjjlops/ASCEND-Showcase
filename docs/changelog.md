@@ -9,6 +9,26 @@ product, see **[products.md](products.md)**.
 
 ---
 
+## 🛰️ An internal control plane + a real cost ledger
+
+With AI live in production, ASCEND needed an operator's view — and a way to know exactly what each
+model call costs. Both shipped together.
+
+- **ASCEND Control** — a new internal admin command center (not customer-facing): a 360° account
+  view, access approvals/gating, subscriptions and revenue, AI usage, Stripe webhook deliveries,
+  live system health, and an **immutable audit log** of every privileged action.
+- **A per-call AI cost ledger** — the AI platform now persists a usage event per request (tokens,
+  model, status, latency, and **real cost**) into a durable, idempotent ledger, fire-and-forget so it
+  never slows a response. Control reads it to show spend by model, product, and account — so AI cost
+  is **measured, not estimated.**
+- **Guarded by three fail-closed walls** — Cloudflare Access at the edge, an origin identity
+  re-verify, and a database-level admin allowlist; privileged reads are narrow and account changes
+  are audited.
+
+Architecture detail: **[architecture.md → the internal control plane](architecture.md#the-internal-control-plane)**.
+
+---
+
 ## 🧠 APEX is now live (early access)
 
 The biggest recent change: **APEX — the shared AI intelligence layer — is now switched on in

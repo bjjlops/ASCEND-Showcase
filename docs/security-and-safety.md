@@ -45,10 +45,27 @@ By design, the AI layer is trustworthy by construction:
 - **Guardrails** — checks for prompt injection, for financial-advice overreach, for attribution, for
   an evidence floor (a model can downgrade its confidence, never inflate it), and for no
   profit-guarantee language.
-- **Audit + cost** — AI calls are designed to write an audit record with request IDs, and model cost
-  is tracked. *(Audit persistence is still being hardened — the decision points and cost tracking are
-  wired; durable storage of the audit trail is in progress.)*
+- **Audit + cost** — every AI call now writes a **per-request usage event** (tokens, model, status,
+  latency, and **real cost**, keyed by request ID) into a durable ledger — idempotently and
+  fire-and-forget, so it never slows or breaks a user response. That ledger feeds an internal cost
+  console, so AI spend is **measured, not estimated.**
 - **Kill switches + rate limits** — AI features sit behind flags, and the platform rate-limits requests.
+
+## Admin access (the internal control plane)
+
+The internal admin console (**ASCEND Control**) is the most-guarded surface in the system, because
+it's the one place with a privileged, wide-angle read. It's gated by **three fail-closed walls**:
+
+1. **Network** — it lives behind **Cloudflare Access**; unauthenticated traffic never reaches it.
+2. **Origin re-verify** — the app re-verifies that identity at its own origin and requires a valid
+   session. It doesn't trust the edge alone.
+3. **Admin allowlist** — the user must also be an admin, enforced by a database-level security-definer
+   check over an admin-roles table. Every page and every mutating action re-checks it.
+
+The RLS-bypassing service role is reserved for **aggregate reads** (usage/cost, entitlements,
+webhooks, health). Account changes run through audited, self-gating database functions, and **every
+privileged action is recorded in an append-only audit log.** The console's assistant is deterministic
+and calls no model. The console is internal-only and excluded from search indexing.
 
 ## Trading safety
 

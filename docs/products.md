@@ -121,6 +121,8 @@ charges and no fake "payment success" states until billing is genuinely enabled.
 ## What is *not* a product
 
 Some parts of ASCEND are infrastructure, not products, and are never marketed as such: the private
-AI platform, the shared packages (contracts, auth, tokens, UI, the typed AI client), and this
-documentation. They exist so the products can be safe and coherent — but they're plumbing, and
-ASCEND is honest about that. See the workspace map in **[tech-stack.md](tech-stack.md)**.
+AI platform, the **internal control plane** (an admin/observability console — accounts, subscriptions,
+the AI cost ledger, and an audit log), the shared packages (contracts, auth, tokens, UI, the typed AI
+client), and this documentation. They exist so the products can be safe and coherent — but they're
+plumbing, and ASCEND is honest about that. See the workspace map in **[tech-stack.md](tech-stack.md)**
+and the control-plane write-up in **[architecture.md](architecture.md#the-internal-control-plane)**.
