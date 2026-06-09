@@ -88,6 +88,8 @@ Real-money trading stays **off by design.**
 </p>
 <p align="center"><sub>Honestly metered — real per-call cost capture, auto-routing across models (deepseek · claude-haiku · qwen).</sub></p>
 
+📸 Full visual tour — Planner, Trader, news, calendar, broker connect → **[docs/gallery.md](docs/gallery.md)**.
+
 ## What makes it different
 
 - **🔒 Security-first architecture.** The apps you run never hold privileged keys. All AI work
@@ -148,22 +150,6 @@ flowchart LR
 > This diagram is intentionally high-level. The implementation lives in a private monorepo.
 > Full conceptual write-up + deployment, identity, and request-lifecycle diagrams:
 > **[docs/architecture.md](docs/architecture.md)**.
-
-## Screenshots
-
-<p align="center">
-  <img src="assets/screenshots/trader-dashboard.png" width="100%" alt="ASCEND Trader dashboard">
-</p>
-<p align="center"><sub><b>ASCEND Trader</b> — market pulse, your edge, and the trade coach in one place.</sub></p>
-
-<p align="center">
-  <img src="assets/screenshots/planner-planner.png" width="49%" alt="ASCEND Planner weekly view">
-  <img src="assets/screenshots/trader-safety.png" width="49%" alt="ASCEND Trader safety model">
-</p>
-<p align="center"><sub><b>Left:</b> the Planner week grid. <b>Right:</b> Trader's safety model — you execute manually; ASCEND never sends an order.</sub></p>
-
-More — Trader news, the economic calendar, watchlist, and read-only broker connect — in the full
-visual tour: **[docs/gallery.md](docs/gallery.md)**.
 
 ## Tech stack
 
