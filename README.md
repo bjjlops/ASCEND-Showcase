@@ -137,9 +137,11 @@ visual tour: **[docs/gallery.md](docs/gallery.md)**.
 
 ## What's new
 
-APEX went live, Trader became a full research workbench, and the whole thing consolidated into one
-monorepo. The honest, grouped log is in **[docs/changelog.md](docs/changelog.md)**; the forward-looking
-status board is in **[docs/roadmap.md](docs/roadmap.md)**.
+APEX went live, Trader became a full research workbench, the apps got one shared login, and the whole
+thing consolidated into one monorepo. The dated, blow-by-blow record (including the bugs) is in
+**[docs/showcase-log.md](docs/showcase-log.md)**; the thematic summary is in
+**[docs/changelog.md](docs/changelog.md)**; the forward-looking status board is in
+**[docs/roadmap.md](docs/roadmap.md)**.
 
 ## Tech stack
 
@@ -166,7 +168,8 @@ running engineering journal:
 | [docs/tech-stack.md](docs/tech-stack.md) | The stack and the monorepo workspace map |
 | [docs/security-and-safety.md](docs/security-and-safety.md) | Security model + trading-safety posture |
 | [docs/design-system.md](docs/design-system.md) | Brand, color, type, and voice |
-| [docs/changelog.md](docs/changelog.md) | **What's been updated** — the milestone log |
+| [docs/changelog.md](docs/changelog.md) | **What's been updated** — the thematic milestone log |
+| [docs/showcase-log.md](docs/showcase-log.md) | **Ship log** — dated, blow-by-blow record |
 | [docs/roadmap.md](docs/roadmap.md) | **Status board** — done, in progress, next, gated |
 | [docs/gallery.md](docs/gallery.md) | Product screenshots |
 | [LEARNINGS.md](LEARNINGS.md) | The engineering journal |

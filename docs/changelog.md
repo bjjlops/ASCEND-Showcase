@@ -71,7 +71,8 @@ More on *why* this was worth the pain in **[../LEARNINGS.md](../LEARNINGS.md)**.
 
 The marketing site became the **identity hub**: you sign in once, and an **/app launcher** sends you
 into the Planner or Trader. A shared **parent-domain session** makes the whole ecosystem feel like
-one product across subdomains, even though each surface is its own app.
+one product across subdomains, even though each surface is its own app. The Trader now shares the
+**same account pool** as the Planner — **one login** works across both products.
 
 ---
 
