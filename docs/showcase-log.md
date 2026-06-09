@@ -34,6 +34,11 @@ Shipped the full AI integration to production (73 files) and switched it **on** 
 - **Real-money trading stays OFF by design.** Going live meant turning on *intelligence*, not
   *execution*.
 
+![Nyquest usage — per-call cost capture](../assets/screenshots/platform-usage.png)
+
+*Real metering, not a mock: per-request counts, tokens, and **per-call cost**, with the auto-router
+fanning out across models (`deepseek-chat-v3.1`, `claude-haiku-4.5`, `qwen3-235b-a22b-thinking-2507`).*
+
 ### 🐛 Production bugs found & fixed (the hard part)
 
 Going live is a test of your constraints, not your features — and of your error logs. What broke,

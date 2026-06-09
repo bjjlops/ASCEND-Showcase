@@ -20,7 +20,7 @@ Product screenshots for the showcase. `✅ in` = present and wired into
 | `planner-dashboard.png` | Signed-in dashboard — greeting + follow-through | ⬜ needed |
 | `planner-habits.png` | Habits list with streaks | ⬜ needed |
 | `planner-stats.png` | Stats (7/14/30-day, follow-through %) | ⬜ needed |
-| `planner-apex.png` | APEX chat mid-conversation | ⬜ needed |
+| `planner-apex.png` | APEX chat mid-conversation | ✅ in |
 
 ### Trader
 | Filename | What it shows | Status |
@@ -34,7 +34,7 @@ Product screenshots for the showcase. `✅ in` = present and wired into
 | `trader-research.png` | A research entry with its AI summary | ⬜ needed |
 | `trader-risk.png` | The risk review output | ⬜ needed |
 | `trader-paper.png` | The paper / backtest runner | ⬜ needed |
-| `trader-coach.png` | The deterministic coach | ⬜ needed |
+| `trader-coach.png` | The trade coach (Beta) | ✅ in |
 
 ### Hub / marketing
 | Filename | What it shows | Status |
@@ -47,6 +47,11 @@ Product screenshots for the showcase. `✅ in` = present and wired into
 | Filename | What it shows | Status |
 | --- | --- | --- |
 | `mobile-preview.png` | Any current mobile planner screen (clearly WIP) | ⬜ needed |
+
+### Platform
+| Filename | What it shows | Status |
+| --- | --- | --- |
+| `platform-usage.png` | Nyquest usage — per-call cost capture + model mix | ✅ in |
 
 ## Optional brand extras
 | Filename | What it shows | Status |

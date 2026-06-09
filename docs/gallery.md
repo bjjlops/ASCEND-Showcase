@@ -34,12 +34,16 @@ broker connected."*
 *The guide makes the safety model explicit: **Plan → Activate → Execute → Review** — you execute
 manually, in your own broker. **"ASCEND never places your trades."***
 
+![Trader trade coach](../assets/screenshots/trader-coach.png)
+*The trade coach (Beta) — "a reflective AI coach for your research, risk, and trading psychology. It
+won't give buy/sell signals or predict prices." Footer reads: AI-generated · educational support,
+not financial advice.*
+
 | Still to add | File | Status |
 | --- | --- | --- |
 | Research + AI summary | `trader-research.png` | ⬜ needed |
 | Risk review | `trader-risk.png` | ⬜ needed |
 | Paper / backtest runner | `trader-paper.png` | ⬜ needed |
-| Coach | `trader-coach.png` | ⬜ needed |
 
 ---
 
@@ -51,12 +55,16 @@ The discipline product — plan a day, keep streaks honest, review the week, and
 *The weekly planner — categories (Academics, Fitness, Skills, Faith, Career), all-day items, fixed
 events, and the hour-by-hour grid. Keyboard-first: every nav item has a shortcut.*
 
+![APEX workspace](../assets/screenshots/planner-apex.png)
+*The APEX workspace — chat grounded in your real plan (note the context chips: Today's plan · This
+week · Unscheduled). It reads your schedule, suggests next actions, and replies in plain language —
+not raw data.*
+
 | Still to add | File | Status |
 | --- | --- | --- |
 | Dashboard / follow-through | `planner-dashboard.png` | ⬜ needed |
 | Habits & streaks | `planner-habits.png` | ⬜ needed |
 | Stats & review | `planner-stats.png` | ⬜ needed |
-| APEX chat (planner) | `planner-apex.png` | ⬜ needed |
 
 ---
 
