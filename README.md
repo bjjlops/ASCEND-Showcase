@@ -204,11 +204,15 @@ struggles come to life.*
 <p align="center">
   <a href="https://ascenddaily.app"><img src="https://img.shields.io/badge/Live-ascenddaily.app-e3b341?style=for-the-badge&labelColor=0a0a0b" alt="Live at ascenddaily.app"></a>
   <a href="https://instagram.com/ascend1211"><img src="https://img.shields.io/badge/Instagram-%40ascend1211-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=0a0a0b" alt="Instagram @ascend1211"></a>
+  <a href="https://x.com/ascend1211"><img src="https://img.shields.io/badge/X-%40ascend1211-0a0a0b?style=for-the-badge&logo=x&logoColor=white&labelColor=0a0a0b" alt="X @ascend1211"></a>
+  <a href="https://www.linkedin.com/in/ascend-undefined-255826414"><img src="https://img.shields.io/badge/LinkedIn-ASCEND-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0a0a0b" alt="LinkedIn"></a>
   <a href="https://github.com/bjjlops/ASCEND-Showcase"><img src="https://img.shields.io/badge/GitHub-ASCEND--Showcase-f5f2ea?style=for-the-badge&logo=github&logoColor=0a0a0b&labelColor=0a0a0b&color=f5f2ea" alt="GitHub repository"></a>
 </p>
 
 - 🌐 **Live:** [ascenddaily.app](https://ascenddaily.app)
 - 📸 **Instagram:** [@ascend1211](https://instagram.com/ascend1211)
+- 𝕏 **X:** [@ascend1211](https://x.com/ascend1211)
+- 💼 **LinkedIn:** [ASCEND](https://www.linkedin.com/in/ascend-undefined-255826414)
 - 💻 **This repo:** [github.com/bjjlops/ASCEND-Showcase](https://github.com/bjjlops/ASCEND-Showcase)
 - 📄 **License:** [LICENSE](LICENSE) — docs and brand only; no code is licensed here.
 
