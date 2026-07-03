@@ -15,7 +15,7 @@ there's no source here.
 | **Trader data** | Prisma · Postgres |
 | **Contracts** | Zod schemas shared across every surface |
 | **AI access** | **Nyquest** — a single private, server-side multi-model gateway |
-| **Payments** | Stripe (test mode) |
+| **Payments** | Stripe Checkout — live (Planner Pro subscription + Lifetime one-time), webhook-driven entitlements |
 | **Monorepo** | pnpm workspaces + Turborepo |
 | **Deployment** | Hybrid — application surfaces on one cloud, edge/DNS + the AI Worker on another |
 | **CI** | Whole-graph typecheck/build/test + AI-boundary guard + trader safety check |

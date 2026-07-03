@@ -10,7 +10,7 @@ advertises — ASCEND markets only what's real today.
 | ASCEND Trader | 🔵 **Live — research only** (no order execution) |
 | APEX (AI layer) | 🟢 **Live — early access**, deterministic-first & guardrailed |
 | Hub / marketing site | 🟢 **Live** |
-| Billing | ⚪ **Test mode** — no live charges |
+| Billing | 🟢 **Live** — Planner Pro ($5/mo) & Lifetime ($199) |
 
 ---
 
@@ -111,8 +111,11 @@ its identity hub: mission, products, packages, sign-in, and an **/app launcher**
 the Planner or Trader.
 
 Beyond identity, it's intentionally minimal in what it touches: **no model access, no privileged
-database keys, no AI calls.** A checkout path exists but runs in **test mode** — there are no live
-charges and no fake "payment success" states until billing is genuinely enabled.
+database keys, no AI calls.** Checkout is now **live** — **Planner Pro** ($5/mo) and **Planner
+Lifetime** ($199 once) run through **Stripe Checkout**, the account upgrades **automatically** when
+payment clears, and there's a self-serve **"Manage billing"** card. A paid entitlement is granted
+**only** by the verified server-side webhook — never by a client claim, and never a fake "payment
+success" state. **/privacy** and **/terms** pages are live.
 
 **Status:** 🟢 **Live**
 

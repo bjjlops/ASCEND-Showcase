@@ -161,7 +161,8 @@ for an unreleased app, a "subscribe now" button that doesn't charge, a confident
 
 I decided the opposite: advertise only what's real. Live is "live," in-development is
 "in-development," research preview is exactly that. No store links until an app is published. No
-checkout charges until billing actually works.
+checkout charges until billing actually works — and once it did (Stripe checkout, real upgrades,
+entitlements granted only by a verified webhook), the "subscribe" buttons became real ones.
 
 It's slower and less flashy. It's also the thing I'm most sure was right.
 

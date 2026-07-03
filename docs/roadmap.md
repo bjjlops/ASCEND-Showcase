@@ -13,7 +13,7 @@ For the log of what *recently* changed, see **[changelog.md](changelog.md)**.
 | APEX (AI layer) | 🟢 Live — early access, deterministic-first & guardrailed |
 | Trader | 🔵 Live — research only (no execution) |
 | Mobile Planner | 🟡 In development |
-| Billing | ⚪ Test mode — no live charges |
+| Billing | 🟢 Live — Planner Pro ($5/mo) & Lifetime ($199) |
 | Connected trade execution | ⛔ Gated behind a written safety checklist |
 
 ## ✅ Done
@@ -31,6 +31,10 @@ For the log of what *recently* changed, see **[changelog.md](changelog.md)**.
 - **Trader workbench** — research with scoring, risk validation, paper/simulation with a kill switch,
   journaling, daily review, watchlist, news + economic calendar, deterministic coach, and read-only
   broker connect.
+- **Billing live** — Planner Pro ($5/mo) and Lifetime ($199) via Stripe Checkout, with automatic
+  account upgrades and self-serve "Manage billing"; entitlements granted only by a verified
+  server-side webhook. Shipped with a production-hardening pass (fail-closed access walls, per-user
+  rate limiting, automatic migrations, /privacy + /terms, correct per-user time zones).
 - **Safety posture** — order placement blocked server-side; honest, status-accurate marketing.
 
 ## 🔄 In progress
@@ -44,8 +48,6 @@ For the log of what *recently* changed, see **[changelog.md](changelog.md)**.
 
 - Mobile planner beta (no store links until it's genuinely published).
 - Extracting remaining shared UI/tokens to fully remove cross-app drift.
-- Turning **billing** from test mode to live — only when there's something worth charging for and the
-  flow is genuinely complete.
 
 ## ⛔ Considered, deliberately gated
 

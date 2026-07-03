@@ -6,6 +6,7 @@
   <a href="https://ascenddaily.app"><img src="https://img.shields.io/badge/web%20planner-live-167455?style=flat-square" alt="Web planner live"></a>
   <img src="https://img.shields.io/badge/APEX-live%20·%20early%20access-b9841f?style=flat-square" alt="APEX live, early access">
   <img src="https://img.shields.io/badge/trader-live%20·%20research%20only-236b5a?style=flat-square" alt="Trader live, research only">
+  <img src="https://img.shields.io/badge/billing-live%20·%20Pro%20%26%20Lifetime-167455?style=flat-square" alt="Billing live, Pro and Lifetime">
   <img src="https://img.shields.io/badge/mobile-in%20development-9b650b?style=flat-square" alt="Mobile in development">
   <img src="https://img.shields.io/badge/docs-only-8a8a93?style=flat-square" alt="Documentation only">
 </p>
@@ -67,26 +68,23 @@ See **[docs/products.md](docs/products.md)** for the full tour.
 > **[docs/showcase-log.md](docs/showcase-log.md)** · thematic summary →
 > **[docs/changelog.md](docs/changelog.md)** · status board → **[docs/roadmap.md](docs/roadmap.md)**.
 
-### 2026-06-08 — APEX is live across ASCEND, and there's now one login
+### 2026-07-02 — Billing is live: Planner Pro & Lifetime
 
-AI is switched **on in production.** In the Planner, **APEX** now answers grounded in your real
-schedule — day analysis, weekly summaries, and a chat that suggests your next action in plain
-language. In the Trader, there's an AI **coach**, a research summarizer, risk review, and strategy
-extraction. It all runs behind the private AI boundary (guardrailed, audited, **kill-switchable**),
-routed through a Cloudflare Worker to the **Nyquest** multi-model gateway with **real per-call cost
-capture.** Sign-in is now unified — **one account works across the Planner and the Trader.**
-Real-money trading stays **off by design.**
+You can now upgrade to **Planner Pro ($5/mo)** or **Planner Lifetime ($199 once)** — and the instant
+you do, your premium features unlock. The full path — **checkout → payment → account upgrade** — runs
+on real infrastructure and is **verified end to end**, through Stripe Checkout, with a self-serve
+**"Manage billing"** card. A paid entitlement is granted **only** by the verified server-side webhook,
+never by a client claim or a return URL — so there are no fake "payment success" states. **APEX is
+part of Planner Pro**, and the upgrade prompt says so before you pay.
 
-<p align="center">
-  <img src="assets/screenshots/planner-apex.png" width="49%" alt="APEX workspace — grounded in your real plan">
-  <img src="assets/screenshots/trader-coach.png" width="49%" alt="Trader trade coach">
-</p>
-<p align="center"><sub><b>Left:</b> APEX, grounded in your real plan. <b>Right:</b> the Trader's reflective coach — no buy/sell signals, no price predictions.</sub></p>
+Alongside it the platform got a **production-hardening pass**: access walls that **fail closed**,
+**per-user rate limiting**, every app deployable with **automatic migrations**, live **/privacy** and
+**/terms** pages, correct per-user time zones, and waitlist protection. This is the groundwork that
+makes a paid launch trustworthy.
 
-<p align="center">
-  <img src="assets/screenshots/platform-usage.png" width="62%" alt="Nyquest usage — real per-call cost capture">
-</p>
-<p align="center"><sub>Honestly metered — real per-call cost capture, auto-routing across models (deepseek · claude-haiku · qwen).</sub></p>
+> Previously the showcase described billing as "integrated, in test mode — no live charges." That's
+> no longer accurate: it's live and verified. The *discipline* stayed the same — entitlements are
+> earned by a verified webhook, never claimed.
 
 📸 Full visual tour — Planner, Trader, news, calendar, broker connect → **[docs/gallery.md](docs/gallery.md)**.
 

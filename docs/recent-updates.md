@@ -16,6 +16,43 @@ had to be beaten), see **[showcase-log.md](showcase-log.md)**; for the thematic 
 
 ---
 
+## 2026-07-02 — Billing is live: Planner Pro & Lifetime
+
+**In production now:** you can upgrade to a paid plan and your premium features unlock the instant
+you do. The full path — **checkout → payment → account upgrade** — runs on real infrastructure and
+is verified end to end.
+
+- **Two ways to upgrade.** **Planner Pro** at **$5/mo** (subscription) or **Planner Lifetime** at
+  **$199 once** (one-time). Stripe Checkout handles payment; your account upgrades **automatically**
+  the moment it clears.
+- **Self-serve billing.** A **"Manage billing"** card lets you review or change your plan yourself —
+  no emailing support.
+- **Earned, never claimed.** A paid entitlement is granted **only** by the verified server-side
+  webhook — never by a client claim or a return URL. No fake "payment success" states.
+- **APEX is part of Planner Pro.** The upgrade prompt makes clear what a plan unlocks before you pay.
+
+Alongside billing, the whole platform got a **production-hardening pass** — the groundwork that makes
+a paid launch trustworthy:
+
+- **Secure by default.** Every access wall now **fails closed**, with **per-user rate limiting** and
+  no data left exposed.
+- **Reproducible & deployable.** Every app is deployable from a clean environment with **automatic
+  migrations**.
+- **Launch essentials.** **/privacy** and **/terms** pages are live, **per-user time zones** compute
+  the correct "today" everywhere, and the waitlist is protected against abuse.
+
+<!--
+  SCREENSHOTS TO ADD (drop into ../assets/screenshots/ and embed here + in the README):
+    • pricing page with live Subscribe / Get Lifetime buttons  (billing-pricing.png)
+    • Stripe Checkout page for Planner Pro                      (billing-checkout.png)
+    • "Payment received" confirmation banner                   (billing-confirmation.png)
+    • account billing card ("Manage billing")                  (billing-manage.png)
+    • the "APEX is part of Planner Pro" upgrade prompt          (billing-apex-upsell.png)
+    • /privacy and /terms pages                                 (legal-privacy-terms.png)
+-->
+
+---
+
 ## 2026-06-08 — APEX is live across ASCEND, and one login
 
 **In production now:** AI is switched **on** across both products, and sign-in is unified — one

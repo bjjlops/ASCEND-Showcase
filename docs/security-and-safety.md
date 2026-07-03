@@ -101,10 +101,11 @@ Until every item is met, execution stays manual and in the user's own broker.
 Safety includes not lying to users:
 
 - The marketing site advertises only what's real. No store links for unpublished apps.
-- Payment flows run in **test mode** — no charges, and no fake "payment success" states — until
-  billing is genuinely enabled. A paid entitlement is granted only by a verified server-side webhook,
-  never by a client claim.
-- Product status is stated plainly: live, in development, research only, or test mode.
+- Billing is **live** (Planner Pro and Lifetime) — and the discipline is structural: a paid
+  entitlement is granted **only** by a verified server-side webhook, never by a client claim or a
+  return URL, so there are **no fake "payment success" states.** The checkout path stayed in test
+  mode until it genuinely worked end to end.
+- Product status is stated plainly: live, in development, or research only.
 
 > The guiding idea: **trust is earned by what the system refuses to do.** ASCEND's safety choices are
 > structural, so they hold even when no one is watching.

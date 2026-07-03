@@ -6,6 +6,41 @@
 
 ---
 
+## 2026-07-02 — Billing live end to end + a production-hardening pass
+
+The day billing stopped being "integrated but in test mode" and became **real, verified, and on** —
+on top of a platform-wide hardening pass so a paid launch is trustworthy from a clean environment.
+
+### 💳 Real billing, verified end to end
+
+- Shipped both plans live: **Planner Pro** ($5/mo subscription) and **Planner Lifetime** ($199
+  one-time), through **Stripe Checkout**.
+- Walked the **full path on real infrastructure** — checkout → payment → automatic account upgrade —
+  and confirmed premium features unlock the instant payment clears.
+- **Entitlement is server-truth only:** a paid plan is granted solely by the verified server-side
+  webhook — never by a client claim or a return URL. No fake "payment success" states.
+- Added self-serve **"Manage billing"** so users manage their own plan.
+- Wired the **"APEX is part of Planner Pro"** upgrade prompt so the value is clear before payment.
+
+### 🔒 Production-hardening pass
+
+- **Fail-closed access walls** — every gate defaults to *deny*; a missing/invalid check blocks access
+  rather than leaking it.
+- **Per-user rate limiting** across sensitive surfaces; no data left exposed.
+- **Reproducible from clean** — every app is deployable with **automatic migrations**, so the system
+  stands up from a fresh environment.
+- **Launch essentials** — **/privacy** and **/terms** pages, **per-user time zones** so "today" is
+  correct for every user, safer AI-chat safety UX, and waitlist abuse protection.
+
+### 📸 Screenshots to add
+
+Pending capture into `../assets/screenshots/` (then embed here + in recent-updates + README): the
+pricing page with live Subscribe / Get Lifetime buttons, the Stripe Checkout page, the "Payment
+received" confirmation banner, the "Manage billing" account card, the "APEX is part of Planner Pro"
+upgrade prompt, and the /privacy and /terms pages.
+
+---
+
 ## 2026-06-08 — AI live across ASCEND, and one login
 
 The day APEX stopped being "designed to be safe but switched off" and became **on, in production**,

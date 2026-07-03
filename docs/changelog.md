@@ -9,6 +9,38 @@ product, see **[products.md](products.md)**.
 
 ---
 
+## 💳 Billing is live — Pro & Lifetime, verified end to end
+
+Billing left test mode. There's now something worth charging for, and the flow is genuinely
+complete — so it's **on**.
+
+- **Two paths.** **Planner Pro** ($5/mo subscription) and **Planner Lifetime** ($199 one-time), both
+  through **Stripe Checkout**. When payment clears, the account **upgrades automatically** and
+  premium features unlock immediately.
+- **Self-serve.** A **"Manage billing"** surface lets users review and change their plan without
+  contacting support.
+- **The discipline held.** A paid entitlement is granted **only** by the verified server-side
+  webhook — never by a client claim or a return URL, and never a fake "payment success" state.
+- **APEX is part of Planner Pro**, and the upgrade prompt states what a plan unlocks before payment.
+
+> This supersedes the earlier "Billing: integrated, in test mode" note — the *what* changed (it's
+> live), the *how* didn't (entitlements are earned by a verified webhook).
+
+---
+
+## 🚀 A production-hardening pass for a trustworthy launch
+
+A paid launch has to be trustworthy end to end, so the whole platform got hardened alongside billing.
+
+- **Secure by default** — every access wall **fails closed**, **per-user rate limiting** is in place,
+  and no data is left exposed.
+- **Reproducible & deployable** — every app deploys from a clean environment with **automatic
+  migrations**.
+- **Launch essentials** — **/privacy** and **/terms** pages are live, **per-user time zones** compute
+  the correct "today" everywhere, safer AI-chat safety UX, and the waitlist is protected against abuse.
+
+---
+
 ## 🛰️ An internal control plane + a real cost ledger
 
 With AI live in production, ASCEND needed an operator's view — and a way to know exactly what each
@@ -106,15 +138,6 @@ ASCEND now runs as a **hybrid deployment** and ships through a real pipeline:
   fails the build if a model-provider key or privileged database key ever leaks toward a client app,
   and a **trader safety check** that fails if the unsafe defaults (live trading / order placement)
   are ever flipped on.
-
----
-
-## 💳 Billing: integrated, in test mode
-
-A checkout path now exists — **Stripe checkout, an idempotent webhook, and an entitlements model** —
-but it's deliberately in **test mode**. There are **no live charges**, and a paid entitlement is only
-ever granted by the verified server-side webhook, never by a client claim or a return URL. It turns
-on for real only when there's something worth charging for.
 
 ---
 
