@@ -6,7 +6,7 @@
   <a href="https://ascenddaily.app"><img src="https://img.shields.io/badge/web%20planner-live-167455?style=flat-square" alt="Web planner live"></a>
   <img src="https://img.shields.io/badge/APEX-live%20·%20early%20access-b9841f?style=flat-square" alt="APEX live, early access">
   <img src="https://img.shields.io/badge/trader-live%20·%20research%20only-236b5a?style=flat-square" alt="Trader live, research only">
-  <img src="https://img.shields.io/badge/billing-live%20·%20Pro%20%26%20Lifetime-167455?style=flat-square" alt="Billing live, Pro and Lifetime">
+  <img src="https://img.shields.io/badge/billing-live%20·%20%245%2Fsolution%20·%20lifetime-167455?style=flat-square" alt="Billing live, $5 per solution, lifetime">
   <img src="https://img.shields.io/badge/mobile-in%20development-9b650b?style=flat-square" alt="Mobile in development">
   <img src="https://img.shields.io/badge/docs-only-8a8a93?style=flat-square" alt="Documentation only">
 </p>
@@ -49,10 +49,10 @@ product.
 
 | Product | What it does | Status |
 | --- | --- | --- |
-| **ASCEND Planner — Web** | Desktop/tablet planner: tasks, habits, schedule, streaks, focus sessions, and APEX planning support. | 🟢 **Live** — free in early access |
+| **ASCEND Planner — Web** | Desktop/tablet planner: tasks, habits, schedule, streaks, focus sessions, and APEX planning support. | 🟢 **Live** — core planner (tasks, habits, planner, reviews, stats) free; **Planner AI** needs a **$5/mo** (or **$199 lifetime**) Planner sub |
 | **ASCEND Planner — Mobile** | The same planner, native on iOS & Android (Expo / React Native). | 🟡 **In development** — no store links until published |
 | **ASCEND Trader** | A safety-first workbench to research setups, validate risk, backtest, journal, and coach — it never places trades. | 🔵 **Live — research only** |
-| **APEX** | The shared AI intelligence layer — planning help, structured analysis, and coaching. | 🟢 **Live — early access** |
+| **APEX** | The shared AI intelligence layer — planning help, structured analysis, and coaching. | 🟢 **Live — early access** — paid AI unlocks with the relevant solution's **Pro**/**Lifetime** sub (per-solution gating) |
 
 > [!IMPORTANT]
 > **ASCEND Trader plans, validates, and journals — it does not place trades.** Order placement is
@@ -67,6 +67,40 @@ See **[docs/products.md](docs/products.md)** for the full tour.
 > **[docs/recent-updates.md](docs/recent-updates.md)** · engineering ship log →
 > **[docs/showcase-log.md](docs/showcase-log.md)** · thematic summary →
 > **[docs/changelog.md](docs/changelog.md)** · status board → **[docs/roadmap.md](docs/roadmap.md)**.
+
+### 2026-07-10 — Per-solution billing, the Profile Hub, and AI gating
+
+Billing is now **per-solution and additive**. Each solution — the **Planner** and the **Trader** —
+is **$5/month**, and they stack on **one subscription and one invoice**: the Planner alone is
+**$5/mo**; add the Trader and you're at **$10/mo**, still one invoice. Each solution also has a
+**$199 lifetime** option — pay once for that solution, never again. Add the first solution and you
+go through **Stripe Checkout**; add another and it's charged **instantly to the card on file,
+prorated, no second checkout**. Remove a solution and you get **prorated credit** for unused time.
+
+The old "pick an app" launcher is now the **Profile Hub** at **[ascenddaily.app/app](https://ascenddaily.app/app)** —
+the single self-serve place to manage everything, and where **every upgrade prompt across the
+platform now points**. Four sections: **Your account** (edit your name, email, sign out), **Your
+solutions** (one card per product with a **Free / Pro / Lifetime / Payment issue** badge, the AI it
+unlocks, and **Open** / buy / manage buttons), a **Billing summary** (total per month, next renewal,
+and a **"Manage payment & invoices"** button into the **Stripe** secure portal), and an **Account**
+section to change your password without leaving the page.
+
+With it comes **AI gating** — a solution's AI now requires that solution's subscription. The
+**Planner core** (tasks, habits, planner, reviews, stats) stays **free**, and the **Trader core**
+(manual research, journaling, the rule-based daily review) stays **free**; the paid AI — APEX chat,
+dashboard insights, day analysis and weekly summaries on the Planner; AI coach, research summaries,
+"paste & extract", and AI risk review on the Trader — unlocks with that solution's **Pro** or
+**Lifetime** sub. Free users see a clean **"part of Pro — $5/month"** prompt that links to the hub,
+never a broken screen. Sign-in and sign-up also got a **cleaner facelift** — one card next to a
+gold-wash brand panel on desktop, and the form directly on the page on mobile. Same accounts, same
+security.
+
+> This supersedes the earlier "Billing is live: Planner Pro & Lifetime" note — the *what* changed
+> (there's no single "Planner Pro" anymore; billing is **per-solution and additive**, $5/mo or $199
+> lifetime **per solution**, with AI gated to the matching sub), the *how* didn't (access is still
+> earned **only** by a verified server-side webhook, never claimed).
+
+📸 Full visual tour — Planner, Trader, news, calendar, broker connect → **[docs/gallery.md](docs/gallery.md)**.
 
 ### 2026-07-02 — Billing is live: Planner Pro & Lifetime
 
@@ -96,7 +130,11 @@ makes a paid launch trustworthy.
 - **🤖 AI built to be trusted.** APEX is **live in early access** — and the constraints held when it
   went live. It prefers deterministic product logic before it ever calls a model, states its
   assumptions, and never invents records, balances, or trades. Guardrails and kill-switches were
-  designed in from day one, not bolted on.
+  designed in from day one, not bolted on. **AI is now gated to each solution's own subscription** —
+  enforced at three layers (the app's UI prompt, the app's server routes, and the central AI backend
+  every request must pass through). That's fail-closed discipline, not a paywall: even a bug in an
+  app can't leak paid AI, and free users get a clean **"part of Pro — $5/month"** prompt, never a
+  broken screen.
 - **🛡️ Trading safety as a hard constraint.** Paper/simulation by default, order placement blocked
   server-side, and a written checklist that any future live path must clear first.
 - **🎚️ Honest marketing.** The public site advertises only what's real today. No vaporware, no

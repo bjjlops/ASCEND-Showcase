@@ -15,7 +15,7 @@ there's no source here.
 | **Trader data** | Prisma · Postgres |
 | **Contracts** | Zod schemas shared across every surface |
 | **AI access** | **Nyquest** — a single private, server-side multi-model gateway |
-| **Payments** | Stripe Checkout — live (Planner Pro subscription + Lifetime one-time), webhook-driven entitlements |
+| **Payments** | **Stripe** — live, **per-solution** billing: each solution **$5/mo** (additive on one subscription, one invoice) or **$199 lifetime** each. First solution runs **Stripe Checkout**; additional monthly solutions are charged **instantly & prorated** to the card on file (no new checkout). Entitlements are **webhook-driven** — only the webhook grants access. **Stripe customer portal** for card/invoice/cancel |
 | **Monorepo** | pnpm workspaces + Turborepo |
 | **Deployment** | Hybrid — application surfaces on one cloud, edge/DNS + the AI Worker on another |
 | **CI** | Whole-graph typecheck/build/test + AI-boundary guard + trader safety check |
@@ -24,7 +24,7 @@ there's no source here.
 
 | App | Role | Status |
 | --- | --- | --- |
-| **services** | The hub: marketing site **and** identity (sign-in + /app launcher) | 🟢 Live |
+| **services** | The hub: marketing site **and** identity (sign-in + the **Profile Hub** — account/solutions/billing/password, the single self-serve management home) | 🟢 Live |
 | **web-planner** | The web planner — tasks, habits, streaks, focus, stats, APEX | 🟢 Live |
 | **trader** | Research & risk workbench — research, paper/sim, journal, coach (no execution) | 🔵 Live, research only |
 | **ai-platform** | The private AI boundary — guardrails, audit, the only thing with model access | 🟢 Live |
@@ -43,8 +43,8 @@ These are consumed directly as `workspace:*` packages — no cross-repo linking,
 | **`@ascend/ui-web`** | Shared React UI primitives (Badge, Button, Card, SkipLink) driven by design tokens. |
 | **`@ascend/tokens`** | Design tokens — CSS custom properties (source of truth) + a synced JS object for native. |
 | **`@ascend/config`** | Shared build presets — Next.js wrapper, TypeScript base, PostCSS/Tailwind. |
-| **`@ascend/entitlements`** | Pure, zero-dependency feature-gating model (products, tiers, status). |
-| **`@ascend/billing`** | Stripe plan catalog + browser checkout/portal helpers. Server validates every entitlement. |
+| **`@ascend/entitlements`** | Pure, zero-dependency **per-solution** feature-gating model (products, tiers, status) — drives which AI benefits each solution's paid tier unlocks. |
+| **`@ascend/billing`** | Stripe **per-solution** plan catalog ($5/mo additive + $199 lifetime each) + browser checkout/portal helpers. Server validates every entitlement. |
 
 ## Why these choices
 

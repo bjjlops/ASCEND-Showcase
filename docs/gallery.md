@@ -37,7 +37,10 @@ manually, in your own broker. **"ASCEND never places your trades."***
 ![Trader trade coach](../assets/screenshots/trader-coach.png)
 *The trade coach (Beta) — "a reflective AI coach for your research, risk, and trading psychology. It
 won't give buy/sell signals or predict prices." Footer reads: AI-generated · educational support,
-not financial advice.*
+not financial advice. The coach chat is now a **Trader AI** feature — **part of Pro, $5/month** for
+the Trader — while manual research, journaling, and the rule-based daily review stay **free**. Free
+users see a clean upgrade prompt, never a broken screen; and the coach still never invents your data
+or places trades.*
 
 | Still to add | File | Status |
 | --- | --- | --- |
@@ -58,7 +61,9 @@ events, and the hour-by-hour grid. Keyboard-first: every nav item has a shortcut
 ![APEX workspace](../assets/screenshots/planner-apex.png)
 *The APEX workspace — chat grounded in your real plan (note the context chips: Today's plan · This
 week · Unscheduled). It reads your schedule, suggests next actions, and replies in plain language —
-not raw data.*
+not raw data. APEX chat is now a **Planner AI** feature — **part of Pro, $5/month** for the Planner —
+alongside dashboard insights, day analysis, and the weekly summary; tasks, habits, the planner,
+reviews, and stats stay **free**. Free users get a clean upgrade prompt, never a raw error.*
 
 | Still to add | File | Status |
 | --- | --- | --- |
@@ -74,7 +79,9 @@ not raw data.*
 | --- | --- | --- |
 | Landing hero | `hub-hero.png` | ⬜ needed |
 | Ecosystem / products section | `hub-ecosystem.png` | ⬜ needed |
-| /app launcher | `hub-launcher.png` | ⬜ needed |
+| Profile Hub — post-login account home at `ascenddaily.app/app` (four sections: Your account · Your solutions · Billing summary · Account) | `profile-hub.png` | ⬜ needed |
+| Profile Hub — per-solution billing summary (total per month · next renewal date · **Manage payment & invoices** → **Stripe** secure customer portal; solution cards with status badges — **Free / Pro / Lifetime / Payment issue** — and buy/manage buttons) | `profile-hub-billing.png` | ⬜ needed |
+| Login & signup facelift — one card next to a gold-wash brand panel on desktop; boxless form on mobile | `login-facelift.png` | ⬜ needed |
 
 ## Mobile (in development)
 

@@ -41,7 +41,10 @@ Product screenshots for the showcase. `✅ in` = present and wired into
 | --- | --- | --- |
 | `hub-hero.png` | The landing hero | ⬜ needed |
 | `hub-ecosystem.png` | The ecosystem / products section | ⬜ needed |
-| `hub-launcher.png` | The /app launcher after sign-in | ⬜ needed |
+| `hub-launcher.png` | **Profile Hub** — the post-login account home at ascenddaily.app/app (Your account / Your solutions / Billing summary / change password); it still launches the solutions | ⬜ needed |
+| `hub-profile-overview.png` | **Profile Hub** landing — all four sections in one view (Your account, Your solutions, Billing summary, Account) | ⬜ needed |
+| `hub-billing-summary.png` | Billing summary — total per month, next renewal date, **"Manage payment & invoices"** (Stripe secure customer portal), and solution cards with status badges (**Free / Pro / Lifetime / Payment issue**) + buy/manage buttons | ⬜ needed |
+| `hub-login-facelift.png` | The redesigned login/signup — one card next to a gold-wash brand panel on desktop; a boxless form directly on the page on mobile | ⬜ needed |
 
 ### Mobile (optional, in development)
 | Filename | What it shows | Status |

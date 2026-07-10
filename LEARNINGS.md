@@ -57,8 +57,9 @@ What actually built trust:
 - **Redact before prompting**, guard against injection and advice-overreach, and **audit** every
   successful call.
 
-*(APEX is still pre-launch — these are the rules it ships with, not a claim that it already runs
-against live models.)*
+> This supersedes the earlier "APEX is still pre-launch" note — the *what* changed (APEX is now
+> live, and its AI benefits are gated behind a **Planner** subscription), the *how* didn't (these
+> are still the rules it runs under against live models — see Lesson 10).
 
 The counterintuitive part: the constraints made the AI *more* useful, not less. People trust a tool
 that knows its limits.
@@ -191,10 +192,46 @@ finally works. Ship the constraints, not just the capability.
 
 ---
 
+## 11. Entitlement is a structure too — one door in, and it's locked by default
+
+Billing arrived, and with it the question I'd been circling for months: who is allowed to use the
+paid AI? Access is now **per-solution** — each solution carries its own paid tier, and a solution's
+AI benefits require *that* solution's subscription. Which meant I had to decide, concretely, where
+"you're allowed" gets decided. Get that wrong and either paying customers get locked out or free
+users get the expensive stuff for nothing.
+
+The rule I landed on is the same shape as everything else in this journal: **only one code path can
+grant access, and it isn't one the client controls.** A payment is only real when **Stripe** tells
+the **server** it happened — through the webhook, never a return URL, never a hopeful "success"
+state the browser reports back. There is exactly one door in, and it opens from the outside.
+
+The honest part is what a door like that has to survive. The happy path took an afternoon; the edge
+cases took the rest of the week. Webhooks retry, so the same event arrives twice and the second one
+must be a no-op. Two browser tabs can start two subscriptions for one person. A late-arriving
+monthly event can try to stomp a lifetime purchase someone already paid for. A renamed price ID can
+quietly look like "this customer isn't paying for anything" and revoke people who very much are. None
+of those are hypothetical — they're the difference between a demo and a thing that touches money.
+
+And because a paywall is only as strong as its weakest bypass, the gate lives at **three** layers,
+not one: the nice "this is part of Pro" prompt inside each app's pages, the real block inside each
+app's server routes, and — the backstop — a check at the central AI backend every request already
+had to pass through. This is the same **private AI boundary** from Lessons 2 and 3, now doing double
+duty: it's where intelligence is gated *and* where entitlement is enforced, so even a bug in one app
+can't leak free AI. Fail-closed, by construction. Cancelling works the same way — your AI keeps
+running until the period you already paid for ends, then stops on its own, because it's the same
+webhook-truth machinery deciding, not a flag someone has to remember to flip.
+
+**Lesson:** decide *where* "allowed" is decided, make it exactly one place, and default it to no.
+Entitlement you can trust looks like the rest of the architecture — a short list of things the
+system refuses to do on anyone's say-so but the truth's.
+
+---
+
 ## The throughline
 
 Almost every lesson here is the same lesson wearing different clothes: **restraint scales.**
 Forbidding the right things, holding the least power, refusing to guess, advertising only what's
-real — discipline isn't the constraint on the work. It *is* the work.
+real, granting access from exactly one locked door — discipline isn't the constraint on the work. It
+*is* the work.
 
 — Diego

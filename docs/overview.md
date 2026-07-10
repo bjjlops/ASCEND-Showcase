@@ -22,10 +22,24 @@ ASCEND Solutions is one platform with several surfaces:
   backtest, and journal. It does not execute trades.
 - **APEX** — the shared AI intelligence layer, **now live in early access**. It helps you plan,
   reviews your habits and streaks, and offers structured analysis — deterministic-first and
-  guardrailed. APEX is a *feature* of the products, not a standalone chatbot.
-- **The hub / marketing site** — a public front door at [ascenddaily.app](https://ascenddaily.app)
-  that explains the ecosystem, handles sign-in once, and routes you into the apps via an /app
-  launcher. It holds no model access and no privileged data.
+  guardrailed. APEX is a *feature* of the products, not a standalone chatbot. Its AI benefits —
+  APEX chat, dashboard AI insights, day analysis, weekly summary — now require a paid **Planner**
+  subscription; a free user meets a clean *"part of Pro — $5/month"* prompt, never a broken screen.
+  The core Planner (tasks, habits, planner, reviews, stats) stays free.
+- **The Profile Hub** — the post-login account home at
+  [ascenddaily.app/app](https://ascenddaily.app/app), and the single self-serve place to manage
+  everything: subscribe or unsubscribe, fix a failed card, edit your profile. Every "upgrade"
+  prompt across the platform points here. It still launches the solutions and still handles
+  sign-in once — and it holds no model access and no privileged data. Billing is **per-solution**
+  and additive: each solution is **$5/mo** (Planner alone $5, add the Trader and you're at $10 —
+  one subscription, one invoice), or **$199 lifetime** per solution.
+- **The marketing site** — a public front door at [ascenddaily.app](https://ascenddaily.app) that
+  explains the ecosystem and advertises only what's real.
+
+> This supersedes the earlier "/app launcher" note — the *what* changed (the bare launcher is now
+> the **Profile Hub**, a real account page, and AI is gated to paid solutions), the *how* didn't
+> (it still handles sign-in once, routes into the apps, and holds no model access or privileged
+> data).
 
 ## The principles
 

@@ -80,6 +80,22 @@ token set in `@ascend/tokens`, so every surface stays in agreement.
   bouncy or attention-seeking.
 - **Soft, modest radii** — rounded enough to feel considered, never playful.
 
+### Auth surfaces
+
+The login and signup pages are where restraint shows first. They used to be boxes-inside-boxes — a
+bordered panel wrapping a bordered card wrapping bordered messages and bordered inputs. The facelift
+strips that to a single, uncluttered layout: **get out of the way, premium without noise.**
+
+- **Desktop** — exactly **one card** beside a clean **gold-wash** brand panel. The wash draws on
+  **Brand gold** `#E3B341`, and stays a panel — not a full-page bath — honoring *accents are for
+  precision, not a full-page wash.*
+- **Mobile** — the form sits **directly on the page**, no box or card at all.
+- Applied **identically** to the main-site login and the planner login, so the first impression is
+  one system, not two.
+
+The post-login home, the **Profile Hub**, is the account surface these pages open onto — same
+restraint carried past the door.
+
 ## Voice
 
 ASCEND sounds **calm, precise, and high-agency.** Copy is concise, specific, and steady.

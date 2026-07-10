@@ -36,6 +36,23 @@ production, reached only through **Nyquest**, one private, server-side gateway. 
 guardrails; they ship **active**, and every AI feature sits behind a **kill-switch flag** that can
 turn it off instantly.
 
+AI is now **fail-closed and paid-gated**: a solution's AI benefits require that solution's active
+subscription (**$5/month** per solution, or a **$199 lifetime**). This is discipline, not a paywall —
+the default is *off*, and access is *earned* by a real entitlement, never leaked by omission. Free
+users get the core features and see clean **"this is part of Pro — $5/month"** prompts that link to
+their [Profile Hub](products.md) — never broken screens or raw errors. The gate is enforced at
+**three layers** so a bug in any one of them cannot leak free AI:
+
+1. **In-app pages** — the friendly UI prompt that offers to subscribe.
+2. **In-app server routes** — the real block, so a crafted request can't skip the UI.
+3. **The central AI backend** — every AI request must pass through **Nyquest**, the same private
+   gateway that already holds the model keys. The boundary is now *also* the entitlement backstop:
+   even if both app layers failed, an unpaid request dies here.
+
+**Cancel-grace** is honest in both directions: cancel a subscription and its AI keeps working through
+the period you already paid for, then shuts off **within about a minute** of that period ending — no
+early cut-off, no lingering free access.
+
 By design, the AI layer is trustworthy by construction:
 
 - **Deterministic-first** — where real product logic exists, it runs *before* a model is ever called.
@@ -101,10 +118,16 @@ Until every item is met, execution stays manual and in the user's own broker.
 Safety includes not lying to users:
 
 - The marketing site advertises only what's real. No store links for unpublished apps.
-- Billing is **live** (Planner Pro and Lifetime) — and the discipline is structural: a paid
+- Billing is **live** and **per-solution**: each solution (the **Planner**, the **Trader**) is
+  **$5/month**, additive on **one subscription and one invoice** — Planner alone is **$5/mo**, add the
+  Trader and you're at **$10/mo** — or a **$199 lifetime** each. The discipline is structural: a paid
   entitlement is granted **only** by a verified server-side webhook, never by a client claim or a
   return URL, so there are **no fake "payment success" states.** The checkout path stayed in test
   mode until it genuinely worked end to end.
+
+  > This supersedes the earlier "Planner Pro and Lifetime" note — the *what* changed (billing is now
+  > per-solution and additive, **$5/mo** each or **$199 lifetime** each), the *how* didn't (entitlement
+  > is still webhook-truth only, with no fake "payment success" states).
 - Product status is stated plainly: live, in development, or research only.
 
 > The guiding idea: **trust is earned by what the system refuses to do.** ASCEND's safety choices are
